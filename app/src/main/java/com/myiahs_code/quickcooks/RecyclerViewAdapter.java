@@ -2,6 +2,7 @@ package com.myiahs_code.quickcooks;
 
 import android.content.Context;
 //import android.support.annotation.NonNull;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mImageName = new ArrayList<>();
 
     private ArrayList<String> mImages = new ArrayList<>();
+
 
     private Context mContext;
 
@@ -62,7 +64,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Log.d(TAG,"onClick: clicked on : "+ mImageName.get(position));
 
                 Toast.makeText(mContext,mImageName.get(position),Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(mContext, InfoActivity.class);
+                intent.putExtra("image_url", mImages.get(position));
+                intent.putExtra("image_name", mImageName.get(position));
+                mContext.startActivity(intent);
 
 
             }
