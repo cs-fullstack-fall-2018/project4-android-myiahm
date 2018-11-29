@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     //vars
     private ArrayList<String> mName = new ArrayList<>();
     private ArrayList<String> mImageUrl = new ArrayList<>();
-
+    private ArrayList<String> mImageDec = new ArrayList<>();
 
 
     @Override
@@ -31,16 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
         mImageUrl.add("https://assets.bonappetit.com/photos/5aa9665c275dc52331d9184b/16:9/w_1200,c_limit/pantry-pasta.jpg");
         mName.add("Pantry Pasta");
+        mImageDec.add("something");
         mImageUrl.add("https://static01.nyt.com/images/2017/08/02/dining/02COOKING_CHICKENPAPRIKASH2/02COOKING_CHICKENPAPRIKASH2-articleLarge.jpg");
         mName.add("Chicken Paprikash");
+        mImageDec.add("something");
+
         mImageUrl.add("https://www.creative-culinary.com/wp-content/uploads/strawberry-margarita-1.jpg");
         mName.add("Fresh Strawberry Margaritas");
+        mImageDec.add("something");
+
         initRecyclerView();
     }
     private void initRecyclerView(){
         Log.d(TAG,"initRecyclerView: init recyclerView.");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mName,mImageUrl);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mName,mImageUrl,mImageDec);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

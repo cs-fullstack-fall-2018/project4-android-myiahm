@@ -21,19 +21,25 @@ public class InfoActivity extends AppCompatActivity {
     }
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: checking for incoming intent.  ");
-        if(getIntent().hasExtra("image_url")&& getIntent().hasExtra("image_name")){
+        if(getIntent().hasExtra("image_url")&& getIntent().hasExtra("image_name")&& getIntent().hasExtra("image_rec")){
             Log.d(TAG, "getIncomingIntent: found intent extras. ");
             String imageUrl = getIntent().getStringExtra("image_url");
             String imageName = getIntent().getStringExtra("image_name");
-            setImage(imageUrl,imageName);
+            String imageDec = getIntent().getStringExtra("image_rec");
+            setImage(imageUrl,imageName,imageDec);
 
         }
     }
-    private void setImage(String imageUrl, String imageName){
+    private void setImage(String imageUrl, String imageName, String imageDec){
         Log.d(TAG, "setImage: setting image and name to widget ");
 
         TextView name = findViewById(R.id.image_description);
         name.setText(imageName);
+
+
+        TextView dec = findViewById(R.id.image_recipe);
+        dec.setText(imageDec);
+
 
         ImageView image = findViewById(R.id.image);
         Glide.with(this)
