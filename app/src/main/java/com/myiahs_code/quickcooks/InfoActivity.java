@@ -1,5 +1,6 @@
 package com.myiahs_code.quickcooks;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,8 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         Log.d(TAG, "onCreate: started. ");
         getIncomingIntent();
-
+        Resources res = getResources();
+        String[] recipes = res.getStringArray(R.array.recipe);
     }
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: checking for incoming intent.  ");
@@ -25,12 +27,12 @@ public class InfoActivity extends AppCompatActivity {
             Log.d(TAG, "getIncomingIntent: found intent extras. ");
             String imageUrl = getIntent().getStringExtra("image_url");
             String imageName = getIntent().getStringExtra("image_name");
-            String imageDec = getIntent().getStringExtra("image_rec");
-            setImage(imageUrl,imageName,imageDec);
+            String imageDes = getIntent().getStringExtra("image_rec");
+            setImage(imageUrl,imageName,imageDes);
 
         }
     }
-    private void setImage(String imageUrl, String imageName, String imageDec){
+    private void setImage(String imageUrl, String imageName, String imageDes){
         Log.d(TAG, "setImage: setting image and name to widget ");
 
         TextView name = findViewById(R.id.image_description);
@@ -38,7 +40,8 @@ public class InfoActivity extends AppCompatActivity {
 
 
         TextView dec = findViewById(R.id.image_recipe);
-        dec.setText(imageDec);
+        dec.setText(imageDes);
+
 
 
         ImageView image = findViewById(R.id.image);

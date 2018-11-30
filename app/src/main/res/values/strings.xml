@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Quick Cooks</string>
+    <string-array name="recipe">
+        <item>title, subtitle, creation date, image, ingredients, and instructions</item>
+        <item>subtitle</item>
+        <item>creation date</item>
+        <item>image</item>
+        <item>ingredients</item>
+        <item>instructions</item>
+    </string-array>
 </resources>
